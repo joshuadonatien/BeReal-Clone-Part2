@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nvc-00-000">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="scn-nvc-000">
+            <objects>
+                <navigationController id="nvc-00-000" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nvb-00-000">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lgn-vc-000" kind="relationship" relationship="rootViewController" id="seg-nvc-lgn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fr-nvc-000" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0" y="150"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="scn-lgn-000">
+            <objects>
+                <viewController id="lgn-vc-000" customClass="LoginViewController" customModuleProvider="target" storyboardIdentifier="LoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lgn-vw-000">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BeReal Clone" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgn-lbl-ttl">
+                                <rect key="frame" x="20" y="140" width="353" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lgn-tf-usr">
+                                <rect key="frame" x="20" y="220" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lgn-usr-h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="none" autocorrectionType="no"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lgn-tf-pwd">
+                                <rect key="frame" x="20" y="286" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lgn-pwd-h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgn-btn-lgn">
+                                <rect key="frame" x="20" y="362" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lgn-lgn-h"/>
+                                </constraints>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="lgn-vc-000" eventType="touchUpInside" id="act-lgn-lgn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgn-btn-sup">
+                                <rect key="frame" x="20" y="428" width="353" height="44"/>
+                                <state key="normal" title="Don&#x27;t have an account? Sign Up"/>
+                                <connections>
+                                    <action selector="signUpButtonTapped:" destination="lgn-vc-000" eventType="touchUpInside" id="act-lgn-sup"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="lgn-ai-000">
+                                <rect key="frame" x="186" y="377" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lgn-sa-000"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lgn-lbl-ttl" firstAttribute="top" secondItem="lgn-sa-000" secondAttribute="top" constant="60" id="lgn-ttl-top"/>
+                            <constraint firstItem="lgn-lbl-ttl" firstAttribute="leading" secondItem="lgn-sa-000" secondAttribute="leading" constant="20" id="lgn-ttl-lead"/>
+                            <constraint firstItem="lgn-sa-000" firstAttribute="trailing" secondItem="lgn-lbl-ttl" secondAttribute="trailing" constant="20" id="lgn-ttl-trail"/>
+                            <constraint firstItem="lgn-tf-usr" firstAttribute="top" secondItem="lgn-lbl-ttl" secondAttribute="bottom" constant="36" id="lgn-usr-top"/>
+                            <constraint firstItem="lgn-tf-usr" firstAttribute="leading" secondItem="lgn-sa-000" secondAttribute="leading" constant="20" id="lgn-usr-lead"/>
+                            <constraint firstItem="lgn-sa-000" firstAttribute="trailing" secondItem="lgn-tf-usr" secondAttribute="trailing" constant="20" id="lgn-usr-trail"/>
+                            <constraint firstItem="lgn-tf-pwd" firstAttribute="top" secondItem="lgn-tf-usr" secondAttribute="bottom" constant="16" id="lgn-pwd-top"/>
+                            <constraint firstItem="lgn-tf-pwd" firstAttribute="leading" secondItem="lgn-sa-000" secondAttribute="leading" constant="20" id="lgn-pwd-lead"/>
+                            <constraint firstItem="lgn-sa-000" firstAttribute="trailing" secondItem="lgn-tf-pwd" secondAttribute="trailing" constant="20" id="lgn-pwd-trail"/>
+                            <constraint firstItem="lgn-btn-lgn" firstAttribute="top" secondItem="lgn-tf-pwd" secondAttribute="bottom" constant="24" id="lgn-lgn-top"/>
+                            <constraint firstItem="lgn-btn-lgn" firstAttribute="leading" secondItem="lgn-sa-000" secondAttribute="leading" constant="20" id="lgn-lgn-lead"/>
+                            <constraint firstItem="lgn-sa-000" firstAttribute="trailing" secondItem="lgn-btn-lgn" secondAttribute="trailing" constant="20" id="lgn-lgn-trail"/>
+                            <constraint firstItem="lgn-btn-sup" firstAttribute="top" secondItem="lgn-btn-lgn" secondAttribute="bottom" constant="12" id="lgn-sup-top"/>
+                            <constraint firstItem="lgn-btn-sup" firstAttribute="centerX" secondItem="lgn-vw-000" secondAttribute="centerX" id="lgn-sup-cx"/>
+                            <constraint firstItem="lgn-ai-000" firstAttribute="centerX" secondItem="lgn-btn-lgn" secondAttribute="centerX" id="lgn-ai-cx"/>
+                            <constraint firstItem="lgn-ai-000" firstAttribute="centerY" secondItem="lgn-btn-lgn" secondAttribute="centerY" id="lgn-ai-cy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lgn-ni-000"/>
+                    <connections>
+                        <outlet property="usernameTextField" destination="lgn-tf-usr" id="out-lgn-usr"/>
+                        <outlet property="passwordTextField" destination="lgn-tf-pwd" id="out-lgn-pwd"/>
+                        <outlet property="loginButton" destination="lgn-btn-lgn" id="out-lgn-btn"/>
+                        <outlet property="signUpButton" destination="lgn-btn-sup" id="out-lgn-sup"/>
+                        <outlet property="activityIndicator" destination="lgn-ai-000" id="out-lgn-ai"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fr-lgn-000" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="530" y="150"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="scn-sup-000">
+            <objects>
+                <viewController id="sup-vc-000" customClass="SignUpViewController" customModuleProvider="target" storyboardIdentifier="SignUpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sup-vw-000">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sup-tf-usr">
+                                <rect key="frame" x="20" y="80" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sup-usr-h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="none" autocorrectionType="no"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sup-tf-pwd">
+                                <rect key="frame" x="20" y="146" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sup-pwd-h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sup-tf-cnf">
+                                <rect key="frame" x="20" y="212" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sup-cnf-h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sup-btn-sup">
+                                <rect key="frame" x="20" y="290" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sup-sup-h"/>
+                                </constraints>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpButtonTapped:" destination="sup-vc-000" eventType="touchUpInside" id="act-sup-sup"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="sup-ai-000">
+                                <rect key="frame" x="186" y="305" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sup-sa-000"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sup-tf-usr" firstAttribute="top" secondItem="sup-sa-000" secondAttribute="top" constant="40" id="sup-usr-top"/>
+                            <constraint firstItem="sup-tf-usr" firstAttribute="leading" secondItem="sup-sa-000" secondAttribute="leading" constant="20" id="sup-usr-lead"/>
+                            <constraint firstItem="sup-sa-000" firstAttribute="trailing" secondItem="sup-tf-usr" secondAttribute="trailing" constant="20" id="sup-usr-trail"/>
+                            <constraint firstItem="sup-tf-pwd" firstAttribute="top" secondItem="sup-tf-usr" secondAttribute="bottom" constant="16" id="sup-pwd-top"/>
+                            <constraint firstItem="sup-tf-pwd" firstAttribute="leading" secondItem="sup-sa-000" secondAttribute="leading" constant="20" id="sup-pwd-lead"/>
+                            <constraint firstItem="sup-sa-000" firstAttribute="trailing" secondItem="sup-tf-pwd" secondAttribute="trailing" constant="20" id="sup-pwd-trail"/>
+                            <constraint firstItem="sup-tf-cnf" firstAttribute="top" secondItem="sup-tf-pwd" secondAttribute="bottom" constant="16" id="sup-cnf-top"/>
+                            <constraint firstItem="sup-tf-cnf" firstAttribute="leading" secondItem="sup-sa-000" secondAttribute="leading" constant="20" id="sup-cnf-lead"/>
+                            <constraint firstItem="sup-sa-000" firstAttribute="trailing" secondItem="sup-tf-cnf" secondAttribute="trailing" constant="20" id="sup-cnf-trail"/>
+                            <constraint firstItem="sup-btn-sup" firstAttribute="top" secondItem="sup-tf-cnf" secondAttribute="bottom" constant="28" id="sup-btn-top"/>
+                            <constraint firstItem="sup-btn-sup" firstAttribute="leading" secondItem="sup-sa-000" secondAttribute="leading" constant="20" id="sup-btn-lead"/>
+                            <constraint firstItem="sup-sa-000" firstAttribute="trailing" secondItem="sup-btn-sup" secondAttribute="trailing" constant="20" id="sup-btn-trail"/>
+                            <constraint firstItem="sup-ai-000" firstAttribute="centerX" secondItem="sup-btn-sup" secondAttribute="centerX" id="sup-ai-cx"/>
+                            <constraint firstItem="sup-ai-000" firstAttribute="centerY" secondItem="sup-btn-sup" secondAttribute="centerY" id="sup-ai-cy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sign Up" id="sup-ni-000"/>
+                    <connections>
+                        <outlet property="usernameTextField" destination="sup-tf-usr" id="out-sup-usr"/>
+                        <outlet property="passwordTextField" destination="sup-tf-pwd" id="out-sup-pwd"/>
+                        <outlet property="confirmPasswordTextField" destination="sup-tf-cnf" id="out-sup-cnf"/>
+                        <outlet property="signUpButton" destination="sup-btn-sup" id="out-sup-btn"/>
+                        <outlet property="activityIndicator" destination="sup-ai-000" id="out-sup-ai"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fr-sup-000" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1060" y="150"/>
+        </scene>
+        <!--Feed View Controller-->
+        <scene sceneID="scn-fed-000">
+            <objects>
+                <viewController id="fed-vc-000" customClass="FeedViewController" customModuleProvider="target" storyboardIdentifier="FeedViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fed-vw-000">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fed-tv-000">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fed-sa-000"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fed-tv-000" firstAttribute="top" secondItem="fed-vw-000" secondAttribute="top" id="fed-tv-top"/>
+                            <constraint firstItem="fed-tv-000" firstAttribute="leading" secondItem="fed-vw-000" secondAttribute="leading" id="fed-tv-lead"/>
+                            <constraint firstItem="fed-vw-000" firstAttribute="trailing" secondItem="fed-tv-000" secondAttribute="trailing" id="fed-tv-trail"/>
+                            <constraint firstItem="fed-vw-000" firstAttribute="bottom" secondItem="fed-tv-000" secondAttribute="bottom" id="fed-tv-bot"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="BeReal" id="fed-ni-000"/>
+                    <connections>
+                        <outlet property="tableView" destination="fed-tv-000" id="out-fed-tv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fr-fed-000" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="150"/>
+        </scene>
+        <!--Create Post View Controller-->
+        <scene sceneID="scn-crt-000">
+            <objects>
+                <viewController id="crt-vc-000" customClass="CreatePostViewController" customModuleProvider="target" storyboardIdentifier="CreatePostViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="crt-vw-000">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="crt-iv-000">
+                                <rect key="frame" x="20" y="20" width="353" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="crt-iv-h"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crt-btn-sel">
+                                <rect key="frame" x="20" y="286" width="353" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="crt-sel-h"/>
+                                </constraints>
+                                <state key="normal" title="Select Photo">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectPhotoTapped:" destination="crt-vc-000" eventType="touchUpInside" id="act-crt-sel"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="crt-tf-cap">
+                                <rect key="frame" x="20" y="346" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="crt-cap-h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crt-lbl-loc">
+                                <rect key="frame" x="20" y="416" width="80" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="crt-sw-loc">
+                                <rect key="frame" x="322" y="413" width="51" height="31"/>
+                                <connections>
+                                    <action selector="locationSwitchChanged:" destination="crt-vc-000" eventType="valueChanged" id="act-crt-loc"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crt-btn-shr">
+                                <rect key="frame" x="20" y="467" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="crt-shr-h"/>
+                                </constraints>
+                                <state key="normal" title="Share Post">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareButtonTapped:" destination="crt-vc-000" eventType="touchUpInside" id="act-crt-shr"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="crt-ai-000">
+                                <rect key="frame" x="186" y="482" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="crt-sa-000"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="crt-iv-000" firstAttribute="top" secondItem="crt-sa-000" secondAttribute="top" constant="16" id="crt-iv-top"/>
+                            <constraint firstItem="crt-iv-000" firstAttribute="leading" secondItem="crt-sa-000" secondAttribute="leading" constant="20" id="crt-iv-lead"/>
+                            <constraint firstItem="crt-sa-000" firstAttribute="trailing" secondItem="crt-iv-000" secondAttribute="trailing" constant="20" id="crt-iv-trail"/>
+                            <constraint firstItem="crt-btn-sel" firstAttribute="top" secondItem="crt-iv-000" secondAttribute="bottom" constant="16" id="crt-sel-top"/>
+                            <constraint firstItem="crt-btn-sel" firstAttribute="leading" secondItem="crt-sa-000" secondAttribute="leading" constant="20" id="crt-sel-lead"/>
+                            <constraint firstItem="crt-sa-000" firstAttribute="trailing" secondItem="crt-btn-sel" secondAttribute="trailing" constant="20" id="crt-sel-trail"/>
+                            <constraint firstItem="crt-tf-cap" firstAttribute="top" secondItem="crt-btn-sel" secondAttribute="bottom" constant="16" id="crt-cap-top"/>
+                            <constraint firstItem="crt-tf-cap" firstAttribute="leading" secondItem="crt-sa-000" secondAttribute="leading" constant="20" id="crt-cap-lead"/>
+                            <constraint firstItem="crt-sa-000" firstAttribute="trailing" secondItem="crt-tf-cap" secondAttribute="trailing" constant="20" id="crt-cap-trail"/>
+                            <constraint firstItem="crt-lbl-loc" firstAttribute="top" secondItem="crt-tf-cap" secondAttribute="bottom" constant="16" id="crt-loc-top"/>
+                            <constraint firstItem="crt-lbl-loc" firstAttribute="leading" secondItem="crt-sa-000" secondAttribute="leading" constant="20" id="crt-loc-lead"/>
+                            <constraint firstItem="crt-sw-loc" firstAttribute="centerY" secondItem="crt-lbl-loc" secondAttribute="centerY" id="crt-sw-cy"/>
+                            <constraint firstItem="crt-sa-000" firstAttribute="trailing" secondItem="crt-sw-loc" secondAttribute="trailing" constant="20" id="crt-sw-trail"/>
+                            <constraint firstItem="crt-btn-shr" firstAttribute="top" secondItem="crt-lbl-loc" secondAttribute="bottom" constant="20" id="crt-shr-top"/>
+                            <constraint firstItem="crt-btn-shr" firstAttribute="leading" secondItem="crt-sa-000" secondAttribute="leading" constant="20" id="crt-shr-lead"/>
+                            <constraint firstItem="crt-sa-000" firstAttribute="trailing" secondItem="crt-btn-shr" secondAttribute="trailing" constant="20" id="crt-shr-trail"/>
+                            <constraint firstItem="crt-ai-000" firstAttribute="centerX" secondItem="crt-btn-shr" secondAttribute="centerX" id="crt-ai-cx"/>
+                            <constraint firstItem="crt-ai-000" firstAttribute="centerY" secondItem="crt-btn-shr" secondAttribute="centerY" id="crt-ai-cy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Post" id="crt-ni-000"/>
+                    <connections>
+                        <outlet property="imageView" destination="crt-iv-000" id="out-crt-iv"/>
+                        <outlet property="captionTextField" destination="crt-tf-cap" id="out-crt-cap"/>
+                        <outlet property="selectPhotoButton" destination="crt-btn-sel" id="out-crt-sel"/>
+                        <outlet property="shareButton" destination="crt-btn-shr" id="out-crt-shr"/>
+                        <outlet property="activityIndicator" destination="crt-ai-000" id="out-crt-ai"/>
+                        <outlet property="locationSwitch" destination="crt-sw-loc" id="out-crt-sw"/>
+                        <outlet property="locationLabel" destination="crt-lbl-loc" id="out-crt-loc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fr-crt-000" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2120" y="150"/>
+        </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="scn-cmt-000">
+            <objects>
+                <viewController id="cmt-vc-000" customClass="CommentsViewController" customModuleProvider="target" storyboardIdentifier="CommentsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cmt-vw-000">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <!--Table View-->
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cmt-tv-000">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="780"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <!--Input Container-->
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmt-inp-000">
+                                <rect key="frame" x="0.0" y="780" width="393" height="72"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment..." textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="cmt-tf-000">
+                                        <rect key="frame" x="12" y="14" width="285" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="cmt-tf-h"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmt-btn-snd">
+                                        <rect key="frame" x="309" y="14" width="72" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="72" id="cmt-btn-w"/>
+                                            <constraint firstAttribute="height" constant="44" id="cmt-btn-h"/>
+                                        </constraints>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="cmt-vc-000" eventType="touchUpInside" id="act-cmt-snd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="cmt-inp-h"/>
+                                    <constraint firstItem="cmt-tf-000" firstAttribute="top" secondItem="cmt-inp-000" secondAttribute="top" constant="14" id="cmt-tf-top"/>
+                                    <constraint firstItem="cmt-tf-000" firstAttribute="leading" secondItem="cmt-inp-000" secondAttribute="leading" constant="12" id="cmt-tf-lead"/>
+                                    <constraint firstItem="cmt-btn-snd" firstAttribute="centerY" secondItem="cmt-tf-000" secondAttribute="centerY" id="cmt-btn-cy"/>
+                                    <constraint firstItem="cmt-inp-000" firstAttribute="trailing" secondItem="cmt-btn-snd" secondAttribute="trailing" constant="12" id="cmt-btn-trail"/>
+                                    <constraint firstItem="cmt-btn-snd" firstAttribute="leading" secondItem="cmt-tf-000" secondAttribute="trailing" constant="8" id="cmt-tf-btn-gap"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cmt-sa-000"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <!--TableView: top to safeArea.top, fill width, bottom to inputContainer.top-->
+                            <constraint firstItem="cmt-tv-000" firstAttribute="top" secondItem="cmt-sa-000" secondAttribute="top" id="cmt-tv-top"/>
+                            <constraint firstItem="cmt-tv-000" firstAttribute="leading" secondItem="cmt-vw-000" secondAttribute="leading" id="cmt-tv-lead"/>
+                            <constraint firstItem="cmt-vw-000" firstAttribute="trailing" secondItem="cmt-tv-000" secondAttribute="trailing" id="cmt-tv-trail"/>
+                            <constraint firstItem="cmt-inp-000" firstAttribute="top" secondItem="cmt-tv-000" secondAttribute="bottom" id="cmt-inp-top"/>
+                            <!--InputContainer: leading/trailing = 0-->
+                            <constraint firstItem="cmt-inp-000" firstAttribute="leading" secondItem="cmt-vw-000" secondAttribute="leading" id="cmt-inp-lead"/>
+                            <constraint firstItem="cmt-vw-000" firstAttribute="trailing" secondItem="cmt-inp-000" secondAttribute="trailing" id="cmt-inp-trail"/>
+                            <!--inputContainerBottomConstraint: safeArea.bottom == inputContainer.bottom (constant=0, increases to push up)-->
+                            <constraint firstItem="cmt-sa-000" firstAttribute="bottom" secondItem="cmt-inp-000" secondAttribute="bottom" id="cmt-inp-bot"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Comments" id="cmt-ni-000"/>
+                    <connections>
+                        <outlet property="tableView" destination="cmt-tv-000" id="out-cmt-tv"/>
+                        <outlet property="commentTextField" destination="cmt-tf-000" id="out-cmt-tf"/>
+                        <outlet property="sendButton" destination="cmt-btn-snd" id="out-cmt-snd"/>
+                        <outlet property="inputContainerBottomConstraint" destination="cmt-inp-bot" id="out-cmt-bot"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fr-cmt-000" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2650" y="150"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" id="cmc-00-001" customClass="CommentCell" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cmc-00-001" id="cmc-cv-001">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <!--Username Label-->
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmc-lbl-usr">
+                        <rect key="frame" x="12" y="10" width="200" height="18"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <!--Timestamp Label-->
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2h ago" textAlignment="right" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmc-lbl-ts">
+                        <rect key="frame" x="281" y="10" width="100" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <!--Comment Text Label-->
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment text goes here" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmc-lbl-txt">
+                        <rect key="frame" x="12" y="36" width="369" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <!--Username Label-->
+                    <constraint firstItem="cmc-lbl-usr" firstAttribute="top" secondItem="cmc-cv-001" secondAttribute="top" constant="10" id="cmc-usr-top"/>
+                    <constraint firstItem="cmc-lbl-usr" firstAttribute="leading" secondItem="cmc-cv-001" secondAttribute="leading" constant="12" id="cmc-usr-lead"/>
+                    <!--Timestamp Label-->
+                    <constraint firstItem="cmc-lbl-ts" firstAttribute="centerY" secondItem="cmc-lbl-usr" secondAttribute="centerY" id="cmc-ts-cy"/>
+                    <constraint firstItem="cmc-cv-001" firstAttribute="trailing" secondItem="cmc-lbl-ts" secondAttribute="trailing" constant="12" id="cmc-ts-trail"/>
+                    <!--Comment Text Label-->
+                    <constraint firstItem="cmc-lbl-txt" firstAttribute="top" secondItem="cmc-lbl-usr" secondAttribute="bottom" constant="6" id="cmc-txt-top"/>
+                    <constraint firstItem="cmc-lbl-txt" firstAttribute="leading" secondItem="cmc-cv-001" secondAttribute="leading" constant="12" id="cmc-txt-lead"/>
+                    <constraint firstItem="cmc-cv-001" firstAttribute="trailing" secondItem="cmc-lbl-txt" secondAttribute="trailing" constant="12" id="cmc-txt-trail"/>
+                    <!--Bottom anchor for automatic cell height-->
+                    <constraint firstItem="cmc-cv-001" firstAttribute="bottom" secondItem="cmc-lbl-txt" secondAttribute="bottom" constant="10" id="cmc-bot-001"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="usernameLabel" destination="cmc-lbl-usr" id="out-cmc-usr"/>
+                <outlet property="timestampLabel" destination="cmc-lbl-ts" id="out-cmc-ts"/>
+                <outlet property="commentTextLabel" destination="cmc-lbl-txt" id="out-cmc-txt"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
