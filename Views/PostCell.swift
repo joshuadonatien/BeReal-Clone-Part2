@@ -90,8 +90,12 @@ class PostCell: UITableViewCell {
 
     func configure(with post: Post, isBlurred: Bool = false) {
         blurView.isHidden = !isBlurred
-        // Set username
-        usernameLabel.text = post.username
+        // Set username and name
+        let displayName = post.name
+        let username = post.username
+        usernameLabel.text = displayName != username
+            ? "\(displayName) (@\(username))"
+            : "@\(username)"
         
         // Set caption
         if let caption = post.caption, !caption.isEmpty {

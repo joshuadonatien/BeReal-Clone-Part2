@@ -34,6 +34,10 @@ class Comment {
         return user?.username ?? "Unknown"
     }
 
+    var name: String {
+        return user?["name"] as? String ?? username
+    }
+
     var timeAgo: String {
         guard let createdAt = createdAt else { return "" }
         let formatter = RelativeDateTimeFormatter()

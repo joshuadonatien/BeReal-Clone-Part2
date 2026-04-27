@@ -119,8 +119,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sup-tf-usr">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sup-tf-name">
                                 <rect key="frame" x="20" y="80" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sup-name-h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sup-tf-usr">
+                                <rect key="frame" x="20" y="146" width="353" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="sup-usr-h"/>
                                 </constraints>
@@ -162,7 +170,10 @@
                         <viewLayoutGuide key="safeArea" id="sup-sa-000"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="sup-tf-usr" firstAttribute="top" secondItem="sup-sa-000" secondAttribute="top" constant="40" id="sup-usr-top"/>
+                            <constraint firstItem="sup-tf-name" firstAttribute="top" secondItem="sup-sa-000" secondAttribute="top" constant="40" id="sup-name-top"/>
+                            <constraint firstItem="sup-tf-name" firstAttribute="leading" secondItem="sup-sa-000" secondAttribute="leading" constant="20" id="sup-name-lead"/>
+                            <constraint firstItem="sup-sa-000" firstAttribute="trailing" secondItem="sup-tf-name" secondAttribute="trailing" constant="20" id="sup-name-trail"/>
+                            <constraint firstItem="sup-tf-usr" firstAttribute="top" secondItem="sup-tf-name" secondAttribute="bottom" constant="16" id="sup-usr-top"/>
                             <constraint firstItem="sup-tf-usr" firstAttribute="leading" secondItem="sup-sa-000" secondAttribute="leading" constant="20" id="sup-usr-lead"/>
                             <constraint firstItem="sup-sa-000" firstAttribute="trailing" secondItem="sup-tf-usr" secondAttribute="trailing" constant="20" id="sup-usr-trail"/>
                             <constraint firstItem="sup-tf-pwd" firstAttribute="top" secondItem="sup-tf-usr" secondAttribute="bottom" constant="16" id="sup-pwd-top"/>
@@ -180,6 +191,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="sup-ni-000"/>
                     <connections>
+                        <outlet property="nameTextField" destination="sup-tf-name" id="out-sup-name"/>
                         <outlet property="usernameTextField" destination="sup-tf-usr" id="out-sup-usr"/>
                         <outlet property="passwordTextField" destination="sup-tf-pwd" id="out-sup-pwd"/>
                         <outlet property="confirmPasswordTextField" destination="sup-tf-cnf" id="out-sup-cnf"/>

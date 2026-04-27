@@ -29,21 +29,22 @@ class ParseHelper {
     ///   - username: User's chosen username
     ///   - password: User's password
     ///   - completion: Callback with success status and optional error
-    func signUp(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
-        
+    func signUp(username: String, name: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+
         // Validate inputs
-        guard !username.isEmpty, !password.isEmpty else {
+        guard !username.isEmpty, !name.isEmpty, !password.isEmpty else {
             let error = NSError(domain: "ValidationError",
                               code: 1,
                               userInfo: [NSLocalizedDescriptionKey: Constants.ErrorMessages.emptyFields])
             completion(false, error)
             return
         }
-        
+
         // Create new Parse user
         let user = PFUser()
         user.username = username.lowercased().trimmingCharacters(in: .whitespaces)
         user.password = password
+        user["name"] = name.trimmingCharacters(in: .whitespaces)
         
         // Sign up in background
         user.signUpInBackground { success, error in

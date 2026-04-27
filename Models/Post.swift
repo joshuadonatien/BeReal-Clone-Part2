@@ -131,6 +131,11 @@ class Post {
     var username: String {
         return user?.username ?? "Unknown User"
     }
+
+    /// Get full name of post author
+    var name: String {
+        return user?["name"] as? String ?? username
+    }
     
     /// Get formatted time since post creation
     var timeAgo: String {

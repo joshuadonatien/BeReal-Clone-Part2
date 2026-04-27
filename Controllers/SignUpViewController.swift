@@ -19,6 +19,7 @@ class SignUpViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -58,12 +59,13 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupTextFields() {
+        nameTextField.delegate = self
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         confirmPasswordTextField.delegate = self
-        
+
         // Style text fields
-        [usernameTextField, passwordTextField, confirmPasswordTextField].forEach { textField in
+        [nameTextField, usernameTextField, passwordTextField, confirmPasswordTextField].forEach { textField in
             textField?.layer.cornerRadius = 8
             textField?.layer.borderWidth = 1
             textField?.layer.borderColor = UIColor.systemGray4.cgColor
@@ -98,24 +100,25 @@ class SignUpViewController: UIViewController {
     
     private func performSignUp() {
         // Get input values
-        guard let username = usernameTextField.text?.trimmingCharacters(in: .whitespaces),
+        guard let name = nameTextField.text?.trimmingCharacters(in: .whitespaces),
+              let username = usernameTextField.text?.trimmingCharacters(in: .whitespaces),
               let password = passwordTextField.text,
               let confirmPassword = confirmPasswordTextField.text else {
             showAlert(message: Constants.ErrorMessages.emptyFields)
             return
         }
-        
+
         // Validate inputs
-        if let validationError = validateInputs(username: username, password: password, confirmPassword: confirmPassword) {
+        if let validationError = validateInputs(name: name, username: username, password: password, confirmPassword: confirmPassword) {
             showAlert(message: validationError)
             return
         }
-        
+
         // Show loading state
         setLoadingState(true)
-        
+
         // Attempt sign up
-        ParseHelper.shared.signUp(username: username, password: password) { [weak self] success, error in
+        ParseHelper.shared.signUp(username: username, name: name, password: password) { [weak self] success, error in
             
             DispatchQueue.main.async {
                 self?.setLoadingState(false)
@@ -134,10 +137,10 @@ class SignUpViewController: UIViewController {
     
     // MARK: - Validation
     
-    private func validateInputs(username: String, password: String, confirmPassword: String) -> String? {
-        
+    private func validateInputs(name: String, username: String, password: String, confirmPassword: String) -> String? {
+
         // Check for empty fields
-        if username.isEmpty || password.isEmpty || confirmPassword.isEmpty {
+        if name.isEmpty || username.isEmpty || password.isEmpty || confirmPassword.isEmpty {
             return Constants.ErrorMessages.emptyFields
         }
         
@@ -244,6 +247,7 @@ class SignUpViewController: UIViewController {
     
     private func setLoadingState(_ isLoading: Bool) {
         signUpButton.isEnabled = !isLoading
+        nameTextField.isEnabled = !isLoading
         usernameTextField.isEnabled = !isLoading
         passwordTextField.isEnabled = !isLoading
         confirmPasswordTextField.isEnabled = !isLoading
@@ -273,7 +277,9 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == usernameTextField {
+        if textField == nameTextField {
+            usernameTextField.becomeFirstResponder()
+        } else if textField == usernameTextField {
             passwordTextField.becomeFirstResponder()
         } else if textField == passwordTextField {
             confirmPasswordTextField.becomeFirstResponder()

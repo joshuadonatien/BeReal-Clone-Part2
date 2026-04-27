@@ -36,7 +36,11 @@ class CommentCell: UITableViewCell {
     // MARK: - Configuration
 
     func configure(with comment: Comment) {
-        usernameLabel.text = comment.username
+        let displayName = comment.name
+        let username = comment.username
+        usernameLabel.text = displayName != username
+            ? "\(displayName) (@\(username))"
+            : "@\(username)"
         commentTextLabel.text = comment.text
         timestampLabel.text = comment.timeAgo
     }
